@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Molecule Viewer</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>2D Molecule Structure Viewer</h1>
+    </header>
+    
+    <main>
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="inchikey-input" 
+          placeholder="Enter InChIKey (e.g., BPGDAMSIGCZZLK-UHFFFAOYSA-N)"
+          autocomplete="off"
+        />
+        <button id="search-btn">Display Molecule</button>
+      </div>
+      
+      <div id="molecule-info" class="molecule-info hidden">
+        <h2>Molecule Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">InChIKey:</span>
+            <span id="inchikey-display" class="value"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Formula:</span>
+            <span id="formula-display" class="value"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">SMILES:</span>
+            <span id="smiles-display" class="value"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div id="molecule-container" class="molecule-container">
+        <div id="loading" class="loading hidden">Loading molecule...</div>
+        <div id="error" class="error hidden"></div>
+        <canvas id="molecule-canvas"></canvas>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

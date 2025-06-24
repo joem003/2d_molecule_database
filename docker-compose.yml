@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data:Z
+    environment:
+      - DB_PATH=/app/data/molecule_2d_minimal.lmdb
+    command: python api_server_minimal.py --host 0.0.0.0 --db-path /app/data/molecule_2d_minimal.lmdb
+    
+  web:
+    build: ./web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
